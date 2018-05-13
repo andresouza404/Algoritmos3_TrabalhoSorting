@@ -1,3 +1,4 @@
+package datastructure;
 import java.util.Comparator;
 
 public class LinkedList<T> {

@@ -1,4 +1,7 @@
+package comparators;
 import java.util.Comparator;
+
+import model.Pessoa;
 
 public class SearchByAge implements Comparator<Pessoa>{
 

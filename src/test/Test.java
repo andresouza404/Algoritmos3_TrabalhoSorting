@@ -1,3 +1,8 @@
+package test;
+
+import comparators.*;
+import datastructure.LinkedList;
+import model.Pessoa;
 
 public class Test {
 	
