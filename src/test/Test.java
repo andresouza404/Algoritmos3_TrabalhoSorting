@@ -16,7 +16,7 @@ public class Test {
 		System.out.println("//////");
 		lista.print();
 		
-		lista.stableSort(lista.getHead(), new SearchByAge());
+		lista.stableSort(new SearchByAge());
 		System.out.println("//////");
 		lista.print();
 	}

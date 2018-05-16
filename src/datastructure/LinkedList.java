@@ -43,14 +43,6 @@ public class LinkedList<T> {
 	private Node head;
 	private Node tail;
 
-	public Node getHead() {
-		return head;
-	}
-
-	public Node getTail() {
-		return tail;
-	}
-
 	public void append(T data) {
 		Node newNode = new Node(data);
 		if (tail != null) {
@@ -81,8 +73,8 @@ public class LinkedList<T> {
 		}
 	}
 
-	public void stableSort(Node head, Comparator<T> cmp) {
-		Node current = head;
+	public void stableSort(Comparator<T> cmp) {
+		Node current = this.head;
 		while (current != null) {
 			T data = current.data;
 			Node i = current;
