@@ -8,11 +8,11 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
-		LinkedList<Pessoa> lista = pop();
+		LinkedList<Pessoa> lista = populateList();
 		
 		lista.print();
 		
-		lista.stableSort(lista.getHead(), new SearchByName());
+		lista.efficientSort(new SearchByName());
 		System.out.println("//////");
 		lista.print();
 		
@@ -21,7 +21,7 @@ public class Test {
 		lista.print();
 	}
 	
-	public static LinkedList<Pessoa> pop() {
+	public static LinkedList<Pessoa> populateList() {
 		String nome[] = { "Bianca", "Luis", "Sofia", "Eduarda", "Roberto", "Mariana", "Felipe", "Barbara", "Thiago",
 				"Ana" };
 		int idade[] = { 83, 83, 66, 33, 24, 24, 33, 48, 64, 37, 32 };

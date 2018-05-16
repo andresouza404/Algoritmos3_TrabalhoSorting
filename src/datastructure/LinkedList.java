@@ -1,4 +1,5 @@
 package datastructure;
+
 import java.util.Comparator;
 
 public class LinkedList<T> {
@@ -45,7 +46,11 @@ public class LinkedList<T> {
 	public Node getHead() {
 		return head;
 	}
-	
+
+	public Node getTail() {
+		return tail;
+	}
+
 	public void append(T data) {
 		Node newNode = new Node(data);
 		if (tail != null) {
@@ -81,7 +86,7 @@ public class LinkedList<T> {
 		while (current != null) {
 			T data = current.data;
 			Node i = current;
-			while(i.previous != null && cmp.compare(data, i.previous.data) < 0) {
+			while (i.previous != null && cmp.compare(data, i.previous.data) < 0) {
 				i.data = i.previous.data;
 				i = i.previous;
 			}
@@ -89,9 +94,34 @@ public class LinkedList<T> {
 			current = current.next;
 		}
 	}
-	
+
 	public void efficientSort(Comparator<T> cmp) {
-		//TO DO
+		recQuicksort(this.head, this.tail, cmp);
 	}
-	
+
+	private void recQuicksort(Node head, Node tail, Comparator<T> cmp) {
+		if (tail != null && head != tail && head != tail.next) {
+			Node temp = partition(head, tail, cmp);
+			recQuicksort(head, temp.previous, cmp);
+			recQuicksort(temp.next, tail, cmp);
+		}
+	}
+
+	public Node partition(Node l, Node h, Comparator<T> cmp) {
+		T x = h.data;
+		Node i = l.previous;
+		for (Node j = l; j !=  h; j = j.next) {
+			if (cmp.compare(j.data, x) <= 0) {
+				i = (i == null) ? l : i.next;
+				T temp = i.data;
+				i.data = j.data;
+				j.data = temp;
+			}
+		}
+		i = (i == null) ? l : i.next;
+		T temp = i.data;
+		i.data = h.data;
+		h.data = temp;
+		return i;
+	}
 }
